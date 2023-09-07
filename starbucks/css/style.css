@@ -1,9 +1,13 @@
-h1,h2,h3,h4,h5,h6,p,body {
+h1,h2,h3,h4,h5,h6,p,body, ul, li {
     margin: 0;
     padding:0;
     font: inherit;
 }
+ul,li {
+    list-style: none; 
+}
 :root {
+    --medium-gray: rgba(0,0,0,.58);
     --starbucks-green: #006241; 
 }
 body {
@@ -30,4 +34,38 @@ h1 {
 .logo {
     width:100px;
     height: 100px;
+}
+.mobile-nav {
+padding: 1rem;
+}
+.mobile-nav a {
+    font-family: Arial ;
+    font-size: 1rem;
+    font-weight:bold; 
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: .5rem 1rem;
+}
+.btn-ui{
+    background-color: white;
+    border:0;  
+    padding:1rem;
+}
+.btn-ui svg {
+    width:3rem;
+    height:3rem;
+    fill:var(--medium-gray)
+}
+#closeBtn {
+    position:absolute;
+    top :1rem;
+    right:1rem; 
+    fill:white;
+    background-color: transparent;
+    border: 1px solid white
+}
+#closeBtn svg {
+    fill:white;
+
 }
