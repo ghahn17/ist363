@@ -4,7 +4,10 @@ h1,h2,h3,h4,h5,h6,p,body, ul, li {
     font: inherit;
 }
 ul,li {
-    list-style: none; 
+    list-style: none; /* removes bullets */ 
+}
+* { 
+    box-sizing: border-box; /* invert padding */ 
 }
 :root {
     --medium-gray: rgba(0,0,0,.58);
@@ -23,6 +26,10 @@ body {
     z-index: 1000;
     transition-property: all;
     transition-duration: .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:2rem;
 }
 .overlay.active {
     left:0;
@@ -32,20 +39,50 @@ h1 {
     color: var(--starbucks-green);
 }
 .logo {
-    width:100px;
-    height: 100px;
+    width:8rem;
+    height: auto;
+    margin-bottom: 2rem;
+    position:relative;
+    left:-1rem;
+    opacity:0;
+    transition-property: all;
+    transition-delay: .25s;
+    transition-duration:.5s;
 }
 .mobile-nav {
-padding: 1rem;
+/*padding: 1rem; */
 }
 .mobile-nav a {
     font-family: Arial ;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight:bold; 
     color: white;
     text-decoration: none;
     display: block;
-    padding: .5rem 1rem;
+    padding: 1rem 0;
+}
+.mobile-nav ul li {
+    position:relative;
+    left: -1rem;
+    opacity: 0; 
+    transition-property: all;
+    transition-duration: .5s;
+}
+.overlay.active .mobile-nav ul li {
+    transition-delay:.4s;
+    opacity: 1; 
+    left:0;
+    /* this applies the properties to all the children ul and li, the ones below do the different transition times*/ 
+}
+.overlay.active .mobile-nav ul li:nth-child(2) {
+    transition-delay:.5s;
+}
+.overlay.active .mobile-nav ul li:nth-child(3) {
+    transition-delay:.6s;
+}
+.overlay.active .logo {
+    left:0; 
+    opacity:1; 
 }
 .btn-ui{
     background-color: white;
