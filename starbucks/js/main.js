@@ -15,6 +15,9 @@ const introduction = `Hi, my name is ${myName}, I am ${myAge} years old and I li
 const menuBtn = document.getElementById("menuBtn");
 const closeBtn = document.getElementById("closeBtn");
 const overlay = document.getElementById("overlay") ;
+const coffeeList=document.getElementById("coffeeList");
+const ascendingBtn= document.getElementById("ascendingBtn");
+const descendingBtn= document.getElementById("descendingBtn");
 //console.log(menuBtn); 
 
 // "event name", callback function 
@@ -28,6 +31,27 @@ closeBtn.addEventListener("click",function(){
 })
 // end of closeBtn event 
 
+//ascending Btn event 
+
+function purgeList() {
+    coffeeList.innerHTML = "";
+}
+function sortList(sortDirection){
+    console.log({sortDirection});
+
+}
+
+ascendingBtn.addEventListener("click",function(){
+    console.log("ascending button has been clicked");
+    purgeList();
+    sortList("ascending");
+});
+// descending Btn remove event 
+descendingBtn.addEventListener("click",function(){
+    console.log("descending button has been clicked");
+    purgeList();
+    sortList("descending");
+});
 // arrays and objects 
 
 // basic variables=
@@ -96,13 +120,29 @@ coffeeObjHeadline.textContent = coffee.name;
 // this is an array of objects 
 //console.log(coffees[1]);
 
+// [...beatles].(sort); clones the og array and creates a fresh one that is sorted 
+
 function buildTextElement (element, className,content) {
     const newElement= document.createElement(element);
     newElement.classList.add(className);
     newElement.textContent = content; 
     return newElement
 }
-coffees.forEach(function(coffee) {
+const sortedCoffees = [...coffees].sort(function(a,b){
+if (a.title < b.title) {
+    return -1;
+}
+if (a.title > b.title) {
+    return 1
+}
+if (a.title < b.title) {
+    return 0
+}
+}); //sort method end 
+
+// preserves the original so you can still see the non-sorted 
+
+sortedCoffees.forEach(function(coffee) {
 //1. deconstruct the coffee object 
     const {title,price,description, image} = coffee;
 
@@ -111,7 +151,7 @@ coffees.forEach(function(coffee) {
     coffeeArticle.classList.add("coffee-item");
 
     const coffeeImage = document.createElement("img")
-    //coffeeImage.src=  `images/${image.fileName}`; 
+    coffeeImage.src=  `images/${image.fileName}`; 
     coffeeImage.width = image.width;
     coffeeImage.width = image.height;
     coffeeImage.alt = image.altText; 
@@ -136,11 +176,11 @@ coffees.forEach(function(coffee) {
     const coffeeDescription= buildTextElement("p","coffee_description",description)
 
 //3. append the elements to the parent article 
-    //coffeeArticle.appendChild(coffeeImage);
+    coffeeArticle.appendChild(coffeeImage);
     coffeeArticle.appendChild(coffeeTitle);
     coffeeArticle.appendChild(coffeePrice);
     coffeeArticle.appendChild(coffeeDescription); 
 //4.append the article to the body 
-    document.body.appendChild(coffeeArticle)
+    coffeeList.appendChild(coffeeArticle)
 }); 
 // end of coffees forEach method 
