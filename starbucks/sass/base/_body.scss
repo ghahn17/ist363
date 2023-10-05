@@ -1,0 +1,6 @@
+@use "../abstracts/vars";
+body {
+    background-color: vars.$color-primary;
+    font-family: vars.$font_primary;
+}
+// need to prefix with file name to use ex: vars is the file name where those are held. 

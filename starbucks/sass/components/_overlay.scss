@@ -1,0 +1,65 @@
+.overlay { 
+    background-color: var(--starbucks-green);
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    top: 0;
+    left: -100vw;
+    z-index: 1000;
+    transition-property: all;
+    transition-duration: .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:2rem;
+}
+.overlay.active {
+    left:0;
+}
+
+.logo {
+    width:8rem;
+    height: auto;
+    margin-bottom: 2rem;
+    position:relative;
+    left:-1rem;
+    opacity:0;
+    transition-property: all;
+    transition-delay: .25s;
+    transition-duration:.5s;
+}
+.mobile-nav {
+/*padding: 1rem; */
+}
+.mobile-nav a {
+    font-family: Arial ;
+    font-size: 2rem;
+    font-weight:bold; 
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 1rem 0;
+}
+.mobile-nav ul li {
+    position:relative;
+    left: -1rem;
+    opacity: 0; 
+    transition-property: all;
+    transition-duration: .5s;
+}
+.overlay.active .mobile-nav ul li {
+    transition-delay:.4s;
+    opacity: 1; 
+    left:0;
+    /* this applies the properties to all the children ul and li, the ones below do the different transition times*/ 
+}
+.overlay.active .mobile-nav ul li:nth-child(2) {
+    transition-delay:.5s;
+}
+.overlay.active .mobile-nav ul li:nth-child(3) {
+    transition-delay:.6s;
+}
+.overlay.active .logo {
+    left:0; 
+    opacity:1; 
+}
