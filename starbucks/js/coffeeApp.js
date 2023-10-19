@@ -1,4 +1,8 @@
 //1. create variables 
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+const overlay = document.getElementById("overlay") ;
+
 const ascendingBtn= document.getElementById("ascendingBtn");
 const descendingBtn= document.getElementById("descendingBtn"); 
 const coffeeList=document.getElementById("coffeeList");
@@ -74,6 +78,14 @@ ascendingBtn.addEventListener("click",function(){
     //console.log(sortedList);
     displayList(sortedList);
 });
+menuBtn.addEventListener("click",function(){
+    //console.log("menu button has been clicked")
+    overlay.classList.add("active");
+}); // end of menuBtn click event 
+
+closeBtn.addEventListener("click",function(){
+    overlay.classList.remove("active");
+})
 // descending Btn remove event 
 descendingBtn.addEventListener("click",function(){
     console.log("descending button has been clicked");
