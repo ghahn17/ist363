@@ -1,0 +1,42 @@
+@use '../abstracts/vars';
+
+.btn {
+    font-family: vars.$font_primary;
+    font-size: 1rem;
+    font-weight:bold;
+    color:black;
+    text-decoration: none;
+    padding:.5rem 1rem;
+    display:block;
+
+    &.btn--primary {
+        background-color: black;
+        color:white;
+        border-radius: 100px;
+        border:1px solid black;
+    }
+    &.btn--secondary {
+        background-color: white;
+        color: black;
+        border-radius: 100px;
+        border:1px solid black;
+    }
+    &.btn--text {
+        
+    }
+    &.btn--icon {
+        display:flex;
+        gap: 0.5rem;
+        align-items: center;
+        svg {
+            width: 1rem;
+            height: auto;
+        }
+        &.btn--icon--left {
+        flex-direction: row-reverse;
+        }
+        &.btn--icon--right {
+            flex-direction: row;
+        }
+    }
+}
