@@ -9,6 +9,10 @@
         height: 1.5rem;
         fill: vars.$color_green
     }
+    img {
+        width:1.5rem;
+        height:auto;
+    }
     &.btn-ui--menu {
         @include mixins.breakpoint(laptop) {
             display:none;

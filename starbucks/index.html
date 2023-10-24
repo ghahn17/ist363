@@ -65,17 +65,44 @@
       </div>
     </header>
     <main>
-    <button id="ascendingBtn">Ascending</button>
-    <button id="descendingBtn">Descending</button>
-    <label for="priceRanges">Price Ranges</label>
-    <select name="priceRanges" id="priceRanges">
-        <option value="all">All</option>
-        <option value="2-3">$2-3</option>
-        <option value="3-4">$3-4</option>
-        <option value="4-5">$4-5</option>
-        <option value="5-6">$5-6</option>
-    </select>
-    <div id="coffeeList" ></div>
+    <div class="container">
+        <section class="showcase">
+            <img src="images/showcase.jpg" 
+            alt="Image of two coffee mugs"
+            class="showcase__img"
+            >
+            <div class="showcase__text">
+                <h1 class="showcase__title">Menu</h1>
+                <p class="showcase__description">Check out Starbucks menu and get nutritional information about each menu item</p>
+            </div>
+        </section>
+<section class="collection">
+    <div class="row justify-content-space-between">
+        <h2 class="collection__title">Coffees</h2>
+        <div class="row">
+        <div class="form__group">
+            <label class="label" for="sortBtn">Sort</label>
+            <button id="sortBtn" class="btn-ui">
+                <img id="sortBtnIcon" src="images/arrow-descending.svg" 
+                alt="Descending icon">
+            </button>
+        </div>
+            <div class="form__group">
+                <label class="label" for="priceRanges">Price Ranges</label>
+                <select class="select" name="priceRanges" 
+                id="priceRanges">
+                    <option value="all">All</option>
+                    <option value="2-3">$2-3</option>
+                    <option value="3-4">$3-4</option>
+                    <option value="4-5">$4-5</option>
+                    <option value="5-6">$5-6</option>
+                </select>
+        </div> <!--mini group end-->
+        </div> <!--mini row-->
+    </div> <!--row-->
+        <div id="coffeeList" class="collection__grid"></div>
+</section>
+</div> <!-- container showcase close--> 
 </main>
 <footer>
     <div class="container">
